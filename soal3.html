@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menggambar</title>
+</head>
+<body>
+    <form onsubmit="event.preventDefault(); gambar()">
+        <label>Masukan panjang gambar :</label>
+        <input id="panjang" type="number" required>
+        <button>Gambar!</button>
+    </form>
+    
+    
+    <script>
+        const panjang = document.getElementById('panjang')
+        
+        function gambar(){
+            for( let i = 1; i <= parseInt(panjang.value); i++){
+            for(let j = 1; j <= parseInt(panjang.value); j++){
+                let span = document.createElement('span')
+                let bintang = document.createTextNode('* ')
+                let pagar = document.createTextNode('= ')
+                if(i%2 === 0 && j%2 === 0){
+                    span.appendChild(bintang)
+                    document.body.appendChild(span)
+                } else if(i%2 === 1 && j%2 === 1) {
+                    span.appendChild(bintang)
+                    document.body.appendChild(span)
+                
+                } else {
+                    span.appendChild(pagar)
+                    document.body.appendChild(span)
+                }
+            }
+            let br = document.createElement('br')
+            document.body.appendChild(br)
+        }
+        }
+        
+    </script>
+</body>
+</html>

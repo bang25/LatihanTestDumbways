@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validasi</title>
+</head>
+<body>
+    <form onsubmit="event.preventDefault(); formValidation()">
+        <label>User :</label>
+        <input id="user" type="text" required><span id="keteranganUser"></span>
+        <br />
+        <label>Password :</label>
+        <input id="password" type="text" required><span id="keteranganPassword"></span>
+        <br />
+        <button>Check</button>
+    </form>
+
+    <script>
+        const user = document.getElementById('user')
+        const password = document.getElementById('password')
+        const keteranganUser = document.getElementById('keteranganUser')
+        const keteranganPassword = document.getElementById('keteranganPassword')
+        
+
+
+        function formValidation(){
+            const regexUser = /^(?=.*[a-zA-Z])((?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[\!@#$%^&*~?])[a-zA-Z0-9\!@#$%^&*~?]{4,8})$/
+            const regexPassword = /^(?=.*[a-zA-Z])((?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*@)(?=.*[\!#$%^&*~?])[a-zA-Z0-9\!@#$%^&*~?]{8,})$/
+            user.value.match(regexUser) ? keteranganUser.innerHTML = 'Username Valid' : keteranganUser.innerHTML = 'Username inValid';
+            password.value.match(regexPassword) ? keteranganPassword.innerHTML = 'Password Valid' : keteranganPassword.innerHTML = 'Password Invalid';
+        }
+    </script>
+</body>
+</html>
